@@ -1,0 +1,92 @@
+<p>
+  creatandadd works!
+</p>
+<div class="topnav">
+  <a class="active" >Creat</a>
+  <a class="active">Add</a>
+  <!-- <a (click)="gotoCreate()">Add</a> -->
+  <a class="active">Update</a>
+  <a class="active">Delete</a>
+</div>
+<div>
+  <p> Crud Application Using Anguler</p>
+</div>
+<div>
+  <input type="text" [placeholder]="textPlaceholder" value="username" [(ngModel)]="username" />
+
+  <input type="password" placeholder="{{passwordPlaceholder}}" />
+  <input type="button" value="login" (click)="login()" />
+
+
+</div>
+<menu>
+  <li><button type="button" onclick="alert('Emplyee Creted')">Creat</button></li>
+  <li><button type="button" onclick="alert('Employee Readit')">Read</button></li>
+  <li><button type="button" onclick="alert('Employee Updated')">Update</button></li>
+  <li><button type="button" onclick="alert('Employee Deleted')">Delete</button></li>
+</menu>
+
+<div>
+  <div>
+    <label>
+      Name :
+    </label>
+    <input type="text" [(ngModel)]="name" class="input">
+
+  </div>
+  <div>
+    <label>
+      Position :
+    </label>
+    <input type="text" [(ngModel)]="position" class="input">
+
+  </div>
+  <div>
+    <label>
+      Salary :
+    </label>
+    <input type="text" [(ngModel)]="salary" class="input">
+
+  </div>
+  <div>
+    <label>
+      Barith Of Date :
+    </label>
+    <input type="text" [(ngModel)]="barithOfDate" class="input" type="date">
+    <label>
+      {{barithOfDate}}
+    </label>
+  </div>
+  <li><button type="button" (click)="createAndUpdate()">Save</button></li>
+</div>
+<div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th> Position</th>
+      <th>Salary</th>
+      <th>Date</th>
+      <th>action</th>
+    </tr>
+    <tr *ngFor="let item of emplyees">
+      <td>{{item.name}}</td>
+      <td>{{item.position}}</td>
+      <td>{{item.salary}}</td>
+      <td>{{item.barithOfDate | date}}</td>
+      <td>
+        <button (click)="edit(item.name)">Edit</button>
+        <button (click)="delete(item.name)">Delete</button>
+      </td>
+  </table>
+</div>
+<div>
+  <!-- <button type="button" class="btn" (click)="navigateToFirst()">CreatAndAdd</button>
+  <button type="button" class="btn" (click)="navigateToSecond()">Update</button> -->
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>
